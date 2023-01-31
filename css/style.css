@@ -17,11 +17,11 @@ body {
   width: 100vw;
   max-width: 100%;
   text-align: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
-.bg-container {
+/* .bg-container {
   position: relative;
 }
 .bg-container::before {
@@ -34,9 +34,10 @@ body {
   filter:brightness(50%);
 }
 .bg {
-  /* This will make it stack on top of the ::before */
+  /* This will make it stack on top of the ::before 
   position: relative;
-}
+} 
+*/
 
 
 
