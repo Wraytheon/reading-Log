@@ -1,17 +1,34 @@
-// Function to display the book data stored in local storage on page load
+// add event listener to the window to listen for the 'load' event
 window.addEventListener("load", function () {
-  // Get the keys of all items stored in local storage
+  // retrieve all the keys stored in local storage
   const keys = Object.keys(localStorage);
-  
-  // Loop through the keys and get the book data stored in local storage
+  // initialize an empty array to store the books data
+  let books = [];
+  // loop through each key in local storage
   for (const key of keys) {
-  const bookData = JSON.parse(localStorage.getItem(key));
-  const title = bookData.title;
-  const author = bookData.author;
-  const isbn = bookData.isbn;
+    // retrieve the book data stored in local storage using the current key
+    const bookData = JSON.parse(localStorage.getItem(key));
+    // add the retrieved book data to the books array
+    books = books.concat(bookData);
   }
-  })
-  
+
+  // check if there are books stored in local storage
+  if (books.length) {
+    // loop through each book in the books array
+    for (const book of books) {
+      // extract the book data from the current book object
+      const title = book.title;
+      const author = book.author;
+      const isbn = book.isbn;
+      const coverImg = book.coverImg;
+      // create a book element using the createBookElement function
+      const bookElement = createBookElement(title, author, isbn, coverImg);
+      // append the created book element to the book-grid element in the DOM
+      document.querySelector("#book-grid").appendChild(bookElement);
+    }
+  }
+});
+
 // Attach a click event listener to the search button
 document.querySelector("#search-button").addEventListener("click", function () {
   // Get the ISBN value entered by the user
@@ -38,17 +55,11 @@ document.querySelector("#search-button").addEventListener("click", function () {
         coverImg,
       };
 
-      // Check if the books array exists in local storage
-      let books = JSON.parse(localStorage.getItem("books"));
-      if (!books) {
-        // If the books array doesn't exist, create it
-        books = [];
-      }
-
-      // Add the new book to the books array
+      /*Retrieve and parse stored data into an object or create an an empty array if no data is found in local storage*/
+      let books = JSON.parse(localStorage.getItem("books")) || [];
+      //Push newly created book object into books array
       books.push(book);
-
-      // Store the updated books array in local storage
+      /*Updated books array parsed back into json format and stored in local storage with key "books"*/
       localStorage.setItem("books", JSON.stringify(books));
 
       // Create a book element using the extracted data
@@ -107,7 +118,6 @@ function createBookElement(title, author, isbn, coverImg) {
   // Return the created book element
   return book;
 }
-
 
 /*
 9780399501487
