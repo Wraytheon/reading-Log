@@ -115,8 +115,11 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
 
+  document.querySelector("#isbn-input").value = "";
+
   // Return the created book element
   return book;
+
 }
 
 /*
@@ -130,4 +133,5 @@ function createBookElement(title, author, isbn, coverImg) {
 9780394712277
 9780385504201
 9780440412670
+0393006867
 */
