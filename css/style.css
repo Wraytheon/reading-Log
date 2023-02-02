@@ -89,16 +89,18 @@ button:hover {
 .book-cover {
   width: 11vw;
   max-width: 100%;
-  height: 75%;
+  /* height: 75%; */
   max-height:  300px;
 }
 
 .book-title {
+  font-size: 1.8rem;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .book-author {
+  font-size: 1.5rem;
   font-style: italic;
   margin-bottom: 10px;
 }
