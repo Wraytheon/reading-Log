@@ -21,23 +21,12 @@ body {
 }
 
 
-/* .bg-container {
-  position: relative;
+body {
+  background-image: url(img/pexels-melike-benli-9247610.jpg);
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.bg-container::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100vw; 
-  height: 100vh;
-  background-image: url(/img/booksBg.jpg);
-  filter:brightness(50%);
-}
-.bg {
-  /* This will make it stack on top of the ::before 
-  position: relative;
-} 
-*/
 
 
 
