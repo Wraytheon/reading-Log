@@ -1,4 +1,8 @@
 # Reading Log
+
+
+https://user-images.githubusercontent.com/94151369/216456336-ed269eb7-d376-4622-b679-471aba6ef954.mp4
+
 A simple web application that allows users to log books they have read and display them. The app takes the user input of the ISBN of a book, uses the OpenLibrary API to retrieve information about the book (title, author, cover image), and stores the information in the local storage.
 
 ## Features
