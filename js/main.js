@@ -115,6 +115,7 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
 
+  // Clears the input field after search button is clicked
   document.querySelector("#isbn-input").value = "";
 
   // Return the created book element
