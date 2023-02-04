@@ -94,6 +94,25 @@ function createBookElement(title, author, isbn, coverImg) {
   const book = document.createElement("div");
   book.classList.add("book");
 
+    // Create a delete button element
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.textContent = "Delete";
+    book.appendChild(deleteButton);
+  
+    // Attach a click event listener to the delete button
+    deleteButton.addEventListener("click", function () {
+      // Remove the book from the local storage
+      let books = JSON.parse(localStorage.getItem("books")) || [];
+      books = books.filter(function (b) {
+        return b.isbn !== isbn;
+      });
+      localStorage.setItem("books", JSON.stringify(books));
+  
+      // Remove the book element from the UI
+      book.remove();
+    });
+
   // Create a cover image element
   const cover = document.createElement("img");
   cover.classList.add("book-cover");
@@ -117,13 +136,6 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.classList.add("book-isbn");
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
-
-  // Create a delete button
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("book-delete");
-  deleteButton.textContent = "Delete";
-  book.appendChild(deleteButton);
-
 
   // Return the created book element
   return book;
