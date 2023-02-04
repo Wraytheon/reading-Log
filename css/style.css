@@ -76,6 +76,10 @@ button:hover {
   background-color: white;
 }
 
+.book-delete {
+  background-color: red;
+}
+
 .book-cover {
   width: 14vw;
   max-width: 100%;

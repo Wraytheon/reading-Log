@@ -68,7 +68,7 @@ document.querySelector("#search-button").addEventListener("click", function () {
       // Append the created book element to the book grid container
       document.querySelector("#book-grid").appendChild(bookElement);
 
-      // Clears the input field after search button is clicked
+      // Clear the input field after search button is clicked
       document.querySelector("#isbn-input").value = "";
     })
     .catch((err) => {
@@ -117,6 +117,12 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.classList.add("book-isbn");
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
+
+  // Create a delete button
+  const deleteButton = document.createElement("btn");
+  deleteButton.classList.add("book-delete");
+  deleteButton.textContent = "Delete";
+  book.appendChild(deleteButton);
 
 
   // Return the created book element
