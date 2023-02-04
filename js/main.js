@@ -67,6 +67,9 @@ document.querySelector("#search-button").addEventListener("click", function () {
 
       // Append the created book element to the book grid container
       document.querySelector("#book-grid").appendChild(bookElement);
+
+      // Clears the input field after search button is clicked
+      document.querySelector("#isbn-input").value = "";
     })
     .catch((err) => {
       // Log the error in the console if the fetch request fails
@@ -115,8 +118,6 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
 
-  // Clears the input field after search button is clicked
-  document.querySelector("#isbn-input").value = "";
 
   // Return the created book element
   return book;
