@@ -88,30 +88,12 @@ function storeBookData(title, author, isbn, coverImg) {
   // Store the updated book data array in local storage
   localStorage.setItem("books", JSON.stringify(books));
 }
+
 // Function to create a book element using the passed in book data
 function createBookElement(title, author, isbn, coverImg) {
   // Create a book container element
   const book = document.createElement("div");
   book.classList.add("book");
-
-    // Create a delete button element
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button");
-    deleteButton.textContent = "Delete";
-    book.appendChild(deleteButton);
-  
-    // Attach a click event listener to the delete button
-    deleteButton.addEventListener("click", function () {
-      // Remove the book from the local storage
-      let books = JSON.parse(localStorage.getItem("books")) || [];
-      books = books.filter(function (b) {
-        return b.isbn !== isbn;
-      });
-      localStorage.setItem("books", JSON.stringify(books));
-  
-      // Remove the book element from the UI
-      book.remove();
-    });
 
   // Create a cover image element
   const cover = document.createElement("img");
@@ -137,9 +119,39 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
 
+  // Create a delete button element
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  book.appendChild(deleteButton);
+  deleteButton.classList.add("hide");
+
+
+  // Show the delete button on hover
+  book.addEventListener("mouseenter", function () {
+    deleteButton.classList.remove("hide");
+    deleteButton.classList.add("book-delete");
+  });
+  // Hide delete button
+  book.addEventListener("mouseleave", function () {
+    deleteButton.classList.remove("book-delete");
+    deleteButton.classList.add("hide");
+  });
+
+  // Attach a click event listener to the delete button
+  deleteButton.addEventListener("click", function () {
+    // Remove the book from the local storage
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+    books = books.filter(function (b) {
+      return b.isbn !== isbn;
+    });
+    localStorage.setItem("books", JSON.stringify(books));
+
+    // Remove the book element from the UI
+    book.remove();
+  });
+
   // Return the created book element
   return book;
-
 }
 
 /*

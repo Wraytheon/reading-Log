@@ -41,7 +41,11 @@ h1 {
 input {
   padding: .8rem;
 }
-button {
+
+.hide {
+  display: none;
+}
+#search-button {
   padding: .8rem 1rem;
   background-color:burlywood;
   border-radius: .5rem;
@@ -49,7 +53,7 @@ button {
   color: white;
 }
 
-button:hover {
+#search-button:hover {
   background-color: brown;
   cursor: pointer;
 }
@@ -77,6 +81,7 @@ button:hover {
 }
 
 .book-delete {
+  display: block;
   background-color: red;
   padding: .3rem .5rem;
   margin: 2px;
