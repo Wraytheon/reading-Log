@@ -78,6 +78,8 @@ button:hover {
 
 .book-delete {
   background-color: red;
+  padding: .3rem .5rem;
+  margin: 2px;
 }
 
 .book-cover {
@@ -96,7 +98,7 @@ button:hover {
 .book-author {
   font-size: 1.5rem;
   font-style: italic;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .book-isbn {

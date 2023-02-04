@@ -119,7 +119,7 @@ function createBookElement(title, author, isbn, coverImg) {
   book.appendChild(isbnElement);
 
   // Create a delete button
-  const deleteButton = document.createElement("btn");
+  const deleteButton = document.createElement("button");
   deleteButton.classList.add("book-delete");
   deleteButton.textContent = "Delete";
   book.appendChild(deleteButton);
