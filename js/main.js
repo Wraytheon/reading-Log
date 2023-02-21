@@ -154,12 +154,19 @@ function createBookElement(title, author, isbn, coverImg, dateStarted, dateCompl
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
 
-
+  // Create a dates element
   const dateElement = document.createElement("p");
   dateElement.classList.add("book-dates");
-  dateStarted === "" && dateCompleted === "" ? dateElement.classList.add("hide") : 
-  dateElement.textContent = `Read: ${dateStarted} - ${dateCompleted}`;
-  console.log(dateStarted)
+  // Update element if info is missing
+  if (dateStarted === "" && dateCompleted === "") {
+    dateElement.classList.add("hide");
+  } else if (dateStarted !== "" && dateCompleted === "") {
+    dateElement.textContent = `Started: ${dateStarted}`
+  } else if (dateStarted === "" && dateCompleted !== "") {
+    dateElement.textContent = `Completed: ${dateCompleted}`
+  } else {
+    dateElement.textContent = `Read: ${dateStarted} - ${dateCompleted}`
+  }
   book.appendChild(dateElement);
 
   // Return the created book element
