@@ -12,22 +12,36 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-		<div class="bg-container">
-			<div class="bg">
-				<h1>My Bookshelf</h1>
-				<div class="input-container">
-					<input
-						type="text"
-						id="isbn-input"
-						placeholder="ISBN"
-					>
-					<button id="add-btn">Add</button>
+    <div class="bg-container">
+      <div class="bg">
+        <h1>My Bookshelf</h1>
+        <div class="input-container">
+          <input type="text" id="isbn-input" placeholder="ISBN" />
+          <button id="add-btn">Add</button>
+
+          <input
+            type="date"
+            id="date-started-input"
+            placeholder="Date started (optional)"
+          />
+          <button id="date-started-btn">Add</button>
+          <input
+            type="date"
+            id="date-completed-input"
+            placeholder="Date completed (optional)"
+          />
+          <button id="date-completed-btn">Add</button>
+
+          <label for="rating">Rating</label>
+          <input type="range" id="rating-input" name="rating" min="1" max="10"
+          step="1" value="5">
+					<span id="rating-value"></span>
 				</div>
-				<div id="book-grid">
-					<!-- placeholder for book elements -->
-				</div>
-			</div>
-		</div>
+        <div id="book-grid">
+          <!-- placeholder for book elements -->
+        </div>
+      </div>
+    </div>
 
     <script type="text/javascript" src="js/main.js"></script>
   </body>
