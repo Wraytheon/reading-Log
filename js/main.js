@@ -157,7 +157,8 @@ function createBookElement(title, author, isbn, coverImg, dateStarted, dateCompl
 
   const dateElement = document.createElement("p");
   dateElement.classList.add("book-dates");
-  dateElement.textContent = `${dateStarted} - ${dateCompleted}`;
+  dateStarted === "" && dateCompleted === "" ? dateElement.classList.add("hide") : 
+  dateElement.textContent = `Read: ${dateStarted} - ${dateCompleted}`;
   console.log(dateStarted)
   book.appendChild(dateElement);
 
