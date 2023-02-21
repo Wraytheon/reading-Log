@@ -121,3 +121,7 @@ label {
 .book-isbn {
   font-size: small;
 }
+
+.book-dates {
+  color: black;
+}
