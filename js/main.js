@@ -21,8 +21,10 @@ window.addEventListener("load", function () {
       const author = book.author;
       const isbn = book.isbn;
       const coverImg = book.coverImg;
+      const dateStarted = book.dateStarted;
+      const dateCompleted = book.dateCompleted;
       // create a book element using the createBookElement function
-      const bookElement = createBookElement(title, author, isbn, coverImg);
+      const bookElement = createBookElement(title, author, isbn, coverImg, dateStarted, dateCompleted);
       // append the created book element to the book-grid element in the DOM
       document.querySelector("#book-grid").appendChild(bookElement);
     }
@@ -68,7 +70,7 @@ document.querySelector("#add-btn").addEventListener("click", function () {
       localStorage.setItem("books", JSON.stringify(books));
 
       // Create a book element using the extracted data
-      const bookElement = createBookElement(title, author, isbn, coverImg);
+      const bookElement = createBookElement(title, author, isbn, coverImg, dateStarted, dateCompleted);
 
       // Append the created book element to the book grid container
       document.querySelector("#book-grid").appendChild(bookElement);
@@ -88,14 +90,14 @@ function storeBookData(title, author, isbn, coverImg, dateStarted, dateCompleted
   let books = JSON.parse(localStorage.getItem("books")) || [];
 
   // Add the current book data to the array
-  books.push({ title, author, isbn, coverImg });
+  books.push({ title, author, isbn, coverImg, dateStarted, dateCompleted });
 
   // Store the updated book data array in local storage
   localStorage.setItem("books", JSON.stringify(books));
 }
 
 // Function to create a book element using the passed in book data
-function createBookElement(title, author, isbn, coverImg) {
+function createBookElement(title, author, isbn, coverImg, dateStarted, dateCompleted) {
   // Create a book container element
   const book = document.createElement("div");
   book.classList.add("book");
@@ -151,6 +153,13 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.classList.add("book-isbn");
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
+
+
+  const dateElement = document.createElement("p");
+  dateElement.classList.add("book-dates");
+  dateElement.textContent = `${dateStarted} - ${dateCompleted}`;
+  console.log(dateStarted)
+  book.appendChild(dateElement);
 
   // Return the created book element
   return book;
