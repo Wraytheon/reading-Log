@@ -147,9 +147,6 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
 
-  const dateReadElement = document.createElement("input");
-  book.appendChild(dateReadElement)
-
   // Return the created book element
   return book;
 }
