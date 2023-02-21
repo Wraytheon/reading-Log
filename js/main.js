@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
 });
 
 // Attach a click event listener to the search button
-document.querySelector("#search-button").addEventListener("click", function () {
+document.querySelector("#add-btn").addEventListener("click", function () {
   // Get the ISBN value entered by the user
   const isbn = document.querySelector("#isbn-input").value;
 
@@ -146,6 +146,9 @@ function createBookElement(title, author, isbn, coverImg) {
   isbnElement.classList.add("book-isbn");
   isbnElement.textContent = isbn;
   book.appendChild(isbnElement);
+
+  const dateReadElement = document.createElement("input");
+  book.appendChild(dateReadElement)
 
   // Return the created book element
   return book;

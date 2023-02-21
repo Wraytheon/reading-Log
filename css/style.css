@@ -49,7 +49,7 @@ input {
 .blur {
   filter:opacity(30%);
 }
-#search-button {
+#add-btn {
   padding: .8rem 1rem;
   background-color:burlywood;
   border-radius: .5rem;
