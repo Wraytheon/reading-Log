@@ -46,6 +46,8 @@ document.querySelector("#add-btn").addEventListener("click", function () {
       const title = dataPrefix.title;
       const author = dataPrefix.authors[0].name;
       const coverImg = dataPrefix.cover.medium;
+      const dateStarted = document.querySelector("#date-started-input").value;
+      const dateCompleted = document.querySelector("#date-completed-input").value;
 
       // Create a book object using the extracted data
       const book = {
@@ -53,7 +55,10 @@ document.querySelector("#add-btn").addEventListener("click", function () {
         author,
         isbn,
         coverImg,
+        dateStarted,
+        dateCompleted
       };
+      console.log(book)
 
       /*Retrieve and parse stored data into an object or create an an empty array if no data is found in local storage*/
       let books = JSON.parse(localStorage.getItem("books")) || [];
@@ -78,7 +83,7 @@ document.querySelector("#add-btn").addEventListener("click", function () {
 });
 
 // Function to store the book data in local storage
-function storeBookData(title, author, isbn, coverImg) {
+function storeBookData(title, author, isbn, coverImg, dateStarted, dateCompleted) {
   // Check if there is any existing book data in local storage
   let books = JSON.parse(localStorage.getItem("books")) || [];
 
