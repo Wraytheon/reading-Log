@@ -42,6 +42,10 @@ input {
   padding: .8rem;
 }
 
+label {
+  color: white;
+}
+
 .hide {
   display: none;
 }
