@@ -24,8 +24,9 @@ The book information will be stored in local storage and will persist even if yo
 
 ### To Do
 - [ ] Allow user to search by title
-- [ ] Allow user to delete books
-- [ ] Allow user to add the date the book was completed
+- [ ] Allow user to rate books
+- [x] Allow user to delete books
+- [x] Allow user to add the date the book was started/completed
 
 #### Licensing
 This project is licensed under the MIT License.
